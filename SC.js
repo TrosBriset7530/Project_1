@@ -2,7 +2,7 @@ console.log("Hello")
 let Item_1 = document.getElementById("click_1")
 let h2_1 = document.getElementById("h2_1")
 const bodyId = document.body.id
-// var Item_1 = document.getElementById("click_1")
+let Item_2 = document.getElementById("click_5")
 const Item = document.querySelectorAll(".item")
 var container = document.getElementById("container")
 
@@ -29,7 +29,11 @@ var container = document.getElementById("container")
             document.body.style.backgroundImage = "url()"
         });
     // Ini Akhir dari Item_1
-    
+    // Item 5
+    Item_5.addEventListener('click',  function() {
+        document.h2 = "Counter Strike: Global Offensive"
+        });
+    // Item_5 end
     Item.forEach(item => {
         item.addEventListener('click', function() {
             console.log('A div was clicked!');
