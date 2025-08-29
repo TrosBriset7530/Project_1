@@ -1,5 +1,4 @@
  body {
-    line-height: 1.6;
     word-spacing: 1.4px;
     min-height: 100vh;
     font-family: "poppins";
@@ -19,21 +18,28 @@
     background-size: cover;
     position: relative;
     backdrop-filter: blur(3px);
-    transition: background-image,opacity 0.3s ease-in-out;
+    transition: background-image 0.3s ease-in-out;
+    transition: opacity 0.1s ease-in-out;
   }
   header{
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  /* gap:10px; */
+  flex-direction: column;
   align-items: center;
-  padding: 30px 60px;
-  margin-left: auto;
-  margin-right: auto;
+  padding: 20px 0px;
+  }
+  header h1{
+    font-size: 60px;
+    margin-top: 0;
+    margin-bottom: 20px;
   }
   img{
     /* background-color: white; */
     /* filter: invert(1); */
     color: white;
-    padding: 2em;
+    padding: 1em;
+    padding-bottom: 0;
     padding-left: 1.4em;
     /* border-radius: 20px; */
     
@@ -63,6 +69,19 @@
     text-align: justify;
     /* padding: 0 10vh 0 90vh; */
   }
+  #right-box{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    /* flex:1; */
+  }
+  #right-box p{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin: 2.8em 0em;
+  }
   h2{
     font-size: 50px;
     cursor: text;
@@ -70,14 +89,13 @@
   }
   #about{
     padding: 0 50vh 0 0;
-    margin: 5em;
+    margin: 1.4em 2em 1em 2em;
   }
   
   .item {
     display: flex;
     flex-direction: column;
     flex: 1;
-    /* justify-content: right; */
     width: 50px;
     height: 50px;
     background-color: rgb(53, 52, 52);
@@ -124,19 +142,25 @@
   }
   /* END OF BASE STYLES */
  
-  @media (max-width: 1200px) {
+  @media (max-width: 1250px) {
     .container {
         /* New width to fit exactly TWO items */
         width: 770px;
         align-items: center;
         justify-content: center;
     }
-    #about, #word-about{
-      padding: 0pt;
-      text-align: center;
-      align-items: center;
+    #about, #about-content{
+      padding: 1pt;
+      margin: 0em;
+      /* margin-left: 1em */
       /* justify-content: center; */
       /* padding: 0 10vh 0 90vh; */
+    }
+    #about-content{
+      justify-content: space-around;
+      padding: 0pt;
+      margin: 0em;
+      margin-left: 1em;
     }
     img{
       width: 600px;
