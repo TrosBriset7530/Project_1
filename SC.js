@@ -70,9 +70,8 @@ down.addEventListener('click',  function() {
 });
 // Ini Awal dari Item_1
     Item_1.addEventListener('click',  function() {
-        gname.innerHTML = "Counter Strike"
-        worddesc.innerHTML = "Originally a modification for Half-Life, Originally a modification for Half-Life, the development team was hired by Valve in 2000, when the company acquired the rights to Counter-Strike.The game received a port to Xbox in 2003. It was also ported to OS X and Linux in the form of a beta in January 2013. A full release was published in April 2013."
-        counter = 1;
+       counter = 1;
+       updateContent()
     });
         Item_1.addEventListener('mouseleave',  function() {
             document.body.style.backgroundImage = "url()"
@@ -81,9 +80,8 @@ down.addEventListener('click',  function() {
 
     // Item 2
     Item_2.addEventListener('click',  function() {
-        gname.innerHTML = "Counter Strike: Ground Zero"
-        worddesc.innerHTML= "Counter-Strike was followed up with Counter-Strike: Condition Zero, developed by Turtle Rock Studios and released in 2004. It used the Half-Life GoldSrc engine, similarly to its predecessor. Besides the multiplayer mode, it also included a single-player mode with a 'full' campaign and bonus levels. The game received mixed reviews in contrast to its predecessor and was quickly followed with a further entry to the series titled Counter-Strike: Source."
         counter = 2;
+       updateContent()
     });
 
         Item_2.addEventListener('dblclick',  function() {
