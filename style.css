@@ -11,13 +11,13 @@
 
   /* BG */
   body{
-    /* background-image: url("pic/BG.jpeg"); */
+    background-image: url("https://static.wikia.nocookie.net/cswikia/images/5/5f/Customplayer_ctm_st6_variantn.png/revision/latest?cb=20211003103842");
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     position: relative;
-    backdrop-filter: blur(3px);
+    backdrop-filter: blur();
     transition: background-image 0.3s ease-in-out;
     transition: opacity 0.1s ease-in-out;
   }
@@ -53,19 +53,20 @@
     height: 100%; */
     margin: auto;
     display: flex;
-    background-color: rgb(105,105,105, 0.5);
+    background-color: rgba(255, 255, 255, 0.4);
     border-radius: 20px;
     /* align-items: center; */
     justify-content: space-between;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 50px;
+    backdrop-filter: blur(100px);
     /* flex: 1; */
   }
   #word-about{
     display: flex;
     flex:1;
-    color:white;
+    color:rgb(37, 37, 37);
     text-align: justify;
     /* padding: 0 10vh 0 90vh; */
   }
