@@ -341,17 +341,20 @@ filter: blur(100px);
     }
 }
 
-/* For screens smaller than 400px (e.g., mobile phones) */
+/* For screens smaller than 500px (e.g. mobile phones) */
 @media (max-width: 500px) {
+  /* html{
+    min-width: 100vh;
+  }
   body{
-    min-width: 100%;
-    min-height: 50vh;
+    min-width: 100vh;
+    /* min-height: 50vh; */
+    html, body{
+      overflow-x: hidden;
   }
     .container {
-        /* New width to fit exactly ONE item */
         margin-left: 15px;
         width: 370px;
-        height: 800px;
         justify-content: center;
         text-align: center;
     }
