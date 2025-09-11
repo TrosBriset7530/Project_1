@@ -3,13 +3,14 @@
   src: url(cs_regular.ttf);
  }
  #background-video {
-position: fixed;
-right: 200;
+position: absolute;
+right: 1000px;
+left: -1000px;
 bottom: 0;
 min-width: 100%;
 min-height: 100%;
-z-index: -1;
-object-fit: cover;
+z-index: -2;
+object-fit: contain;
 filter: blur(100%);
 }
 
@@ -27,6 +28,7 @@ filter: blur(100%);
   /* BG */
   body{
     /* background-image: url("https://static.wikia.nocookie.net/cswikia/images/5/5f/Customplayer_ctm_st6_variantn.png/revision/latest?cb=20211003103842"); */
+    background-color: #03002e;
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: center;
@@ -65,24 +67,53 @@ filter: blur(100%);
   }
 
   .container {
+    position: relative;
     margin: auto;
     display: flex;
     width: 60%;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgb(29, 12, 39);
     border: 4px solid transparent;
     border-radius: 20px;
-    border-image: linear-gradient(to right,  #fc72ff, #8f68ff, #487bff,#8f68ff,#fc72ff) 1;
-    animation: animate-gradient1 2.5s linear infinite;
+    /* border-image: linear-gradient(to right,  #fc72ff, #8f68ff, #487bff,#8f68ff,#fc72ff) 1;
+    animation: animate-gradient1 2.5s linear infinite; */
     justify-content: space-between;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 30px;
   }
-@keyframes animate-gradient1 {
-    to{
-      background-position: 200%;
-    }
+ 
+  @property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
   }
+  
+  .container::after, .container::before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    border-radius: 20px;
+    padding: 7px;
+    background-image: conic-gradient(from var(--angle), #fc72ff, #8f68ff, #487bff,#8f68ff,#fc72ff);
+    z-index: -1;
+    translate: -50% -50%;
+    animation: 2s spin linear infinite;
+  }
+  .container::before{
+    filter: blur(1.5rem);
+    opacity: 0.5;
+  }
+@keyframes spin{
+  from{
+    --angle: 0deg;
+  }
+  to{
+    --angle: 360deg
+  }
+}
 
   #gname{
     color: white;
@@ -119,7 +150,7 @@ filter: blur(100%);
     flex-direction: column;
     flex: 1;
     text-transform: uppercase;
-    margin: 2.85em 0em;
+    margin: 2.85em 0.8em;
     transition: transform 0.8s ease;
     position: relative;
   }
@@ -295,8 +326,60 @@ filter: blur(100%);
         /* New width to fit exactly ONE item */
         width: 350px;
         justify-content: center;
+        text-align: center;
+    }
+    header h1{
+      font-family:'Counter-Strike';
+      font-size: 50px;
+      letter-spacing: 5px;
+      margin-top: 0;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    #gname{
+      width: 100%;
+      padding-right: 10em;
     }
     img{
       width: 180px;
     }
-}
+    #right-box {
+      /* Change to row to make items horizontal */
+      flex-direction: column; 
+      flex-wrap: wrap;
+      justify-content: center;
+  }
+    #button-1{
+      display: flex;
+      order: 1;
+      flex-direction: row;
+    }
+    .item{
+      width: 50px;
+      margin: 0;
+      margin: 1px 10px 1px 10px
+    }
+    .box-text{
+      display: flex;
+      order: 2;
+      flex-direction: row;
+      
+    }
+    .item-0, .item-last{
+      display: none;
+    }
+    #right-box p {
+      font-size: 10px;
+      text-align: center;
+    }
+  }
+  /* right-box p{
+    display: flex;
+    text-align: right;
+    flex-direction: column;
+    flex: 1;
+    text-transform: uppercase;
+    margin: 2.85em 0.8em;
+    transition: transform 0.8s ease;
+    position: relative;
+  } */
