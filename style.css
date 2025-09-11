@@ -16,6 +16,7 @@ filter: blur(100%);
 
  body {
     word-spacing: 1.4px;
+    /* min-width: 100vh; */
     min-height: 100vh;
     font-family: "poppins";
     display: flex;
@@ -71,7 +72,7 @@ filter: blur(100%);
     margin: auto;
     display: flex;
     width: 60%;
-    background-color: rgb(29, 12, 39);
+    background: radial-gradient(rgb(3,0,46));
     border: 4px solid transparent;
     border-radius: 20px;
     /* border-image: linear-gradient(to right,  #fc72ff, #8f68ff, #487bff,#8f68ff,#fc72ff) 1;
@@ -172,7 +173,7 @@ filter: blur(100%);
   }
   /* end */
   #right-box p:hover, .item:hover{
-    transform: scale(1.2);
+    transform: scale(1.1);
     z-index: 10;           
     cursor: pointer;  
   }
@@ -293,7 +294,8 @@ filter: blur(100%);
 }
   @media (max-width: 900px) {
     .container {
-        width: 370px;
+        /* width: 100%;
+        height: 100%; */
         align-items: center;
         justify-content: center;
         flex-direction: column;
@@ -322,9 +324,15 @@ filter: blur(100%);
 
 /* For screens smaller than 400px (e.g., mobile phones) */
 @media (max-width: 500px) {
+  body{
+    min-width: 100%;
+    min-height: 50vh;
+  }
     .container {
         /* New width to fit exactly ONE item */
-        width: 350px;
+        margin-left: 15px;
+        width: 370px;
+        height: 800px;
         justify-content: center;
         text-align: center;
     }
@@ -334,6 +342,7 @@ filter: blur(100%);
       letter-spacing: 5px;
       margin-top: 0;
       text-align: center;
+      margin-top: 30px;
       margin-bottom: 20px;
     }
     #gname{
@@ -357,7 +366,7 @@ filter: blur(100%);
     .item{
       width: 50px;
       margin: 0;
-      margin: 1px 10px 1px 10px
+      margin: 1px 12px 1px 12px
     }
     .box-text{
       display: flex;
@@ -383,3 +392,8 @@ filter: blur(100%);
     transition: transform 0.8s ease;
     position: relative;
   } */
+
+  .item.active {
+    transform: scale(1.1);
+    z-index: 10;
+}

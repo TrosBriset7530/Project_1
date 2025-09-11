@@ -10,6 +10,13 @@ let gname = document.getElementById("gname")
 let worddesc = document.getElementById("word-about")
 let up = document.getElementById("click_0")
 let down = document.getElementById("click_last")
+// Parag
+let p1 = document.getElementById("p1")
+let p2 = document.getElementById("p2")
+let p3 = document.getElementById("p3")
+let p4 = document.getElementById("p4")
+let p5 = document.getElementById("p5")
+let p = document.querySelectorAll("para")
 // 
 const bodyId = document.body.id
 const Item = document.querySelectorAll(".item")
@@ -22,43 +29,44 @@ function updateCountDisplayAndStorage() {
 }
 function updateContent() {
     updateCountDisplayAndStorage();
+     Item.forEach(item => {
+        item.style.transform = "scale(1)"
+    });
     if (counter === 1) {
         gname.innerHTML = "Counter Strike";
         worddesc.innerHTML = "Originally a modification for Half-Life, Originally a modification for Half-Life, the development team was hired by Valve in 2000, when the company acquired the rights to Counter-Strike.The game received a port to Xbox in 2003. It was also ported to OS X and Linux in the form of a beta in January 2013. A full release was published in April 2013.";
-        Item.forEach(item => {
-        item.style.transform = "scale(1)"
-    });
         Item_1.style.transform = "scale(1.2)"
     } else if (counter === 2) {
         gname.innerHTML = "Counter Strike: Ground Zero";
-        worddesc.innerHTML = "Counter-Strike was followed up with Counter-Strike: Condition Zero,Counter-Strike was followed up with Counter-Strike: Condition Zero, developed by Turtle Rock Studios and released in 2004. It used the Half-Life GoldSrc engine, similarly to its predecessor. Besides the multiplayer mode, it also included a single-player mode with a 'full' campaign and bonus levels. The game received mixed reviews in contrast to its predecessor and was quickly followed with a further entry to the series titled Counter-Strike: Source.";
-        Item.forEach(item => {
-        item.style.transform = "scale(1)"
-    });
+        worddesc.innerHTML = "Counter-Strike was followed up with Counter-Strike: Condition Zero, developed by Turtle Rock Studios and released in 2004. It used the Half-Life GoldSrc engine, similarly to its predecessor. Besides the multiplayer mode, it also included a single-player mode with a 'full' campaign and bonus levels. The game received mixed reviews in contrast to its predecessor and was quickly followed with a further entry to the series titled Counter-Strike: Source.";
+    // para.forEach(para => {
+    //         p2.style.fontWeight = "bold";
+    //         para.style.background = "white";
+    //         para.style.webkitTextFillColor = "transparent";
+    //     })
+    //     p2.style.fontWeight = "bold";
+    //     p2.style.background = "linear-gradient(to right, #fc72ff, #8f68ff, #487bff, #8f68ff, #fc72ff)";
+    //     p2.style.backgroundSize = "200%";
+    //     p2.style.backgroundClip = "text";
+    //     p2.style.webkitBackgroundClip = "text";
+    //     p2.style.webkitTextFillColor = "transparent";
+    //     p2.style.animation = "animate-gradient 2.5s linear infinite";
         Item_2.style.transform = "scale(1.2)"
+        
     }
     else if (counter === 3) {
         gname.innerHTML = "Counter Strike: Source";
         worddesc.innerHTML = "Counter-Strike was followed up with Counter-Strike: Condition Zero,Counter-Strike was followed up with Counter-Strike: Condition Zero, developed by Turtle Rock Studios and released in 2004. It used the Half-Life GoldSrc engine, similarly to its predecessor. Besides the multiplayer mode, it also included a single-player mode with a 'full' campaign and bonus levels. The game received mixed reviews in contrast to its predecessor and was quickly followed with a further entry to the series titled Counter-Strike: Source.";
-        Item.forEach(item => {
-        item.style.transform = "scale(1)"
-    });
         Item_3.style.transform = "scale(1.2)"
     }
     else if (counter === 4) {
         gname.innerHTML = "Counter Strike: Global Offensive";
         worddesc.innerHTML = "Counter-Strike was followed up with Counter-Strike: Condition Zero,Counter-Strike was followed up with Counter-Strike: Condition Zero, developed by Turtle Rock Studios and released in 2004. It used the Half-Life GoldSrc engine, similarly to its predecessor. Besides the multiplayer mode, it also included a single-player mode with a 'full' campaign and bonus levels. The game received mixed reviews in contrast to its predecessor and was quickly followed with a further entry to the series titled Counter-Strike: Source.";
-        Item.forEach(item => {
-        item.style.transform = "scale(1)"
-    });
         Item_4.style.transform = "scale(1.2)"
     }
     else if (counter === 5) {
         gname.innerHTML = "Counter Strike: 2";
         worddesc.innerHTML = "Counter-Strike was followed up with Counter-Strike: Condition Zero,Counter-Strike was followed up with Counter-Strike: Condition Zero, developed by Turtle Rock Studios and released in 2004. It used the Half-Life GoldSrc engine, similarly to its predecessor. Besides the multiplayer mode, it also included a single-player mode with a 'full' campaign and bonus levels. The game received mixed reviews in contrast to its predecessor and was quickly followed with a further entry to the series titled Counter-Strike: Source.";
-        Item.forEach(item => {
-        item.style.transform = "scale(1)"
-    });
         Item_5.style.transform = "scale(1.2)"
     }
     // else {
