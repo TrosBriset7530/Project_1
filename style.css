@@ -2,9 +2,21 @@
   font-family:'Counter-Strike';
   src: url(cs_regular.ttf);
  }
- 
+ #background-video {
+position: absolute;
+right: 1000px;
+left: -1000px;
+bottom: 0;
+min-width: 100%;
+min-height: 100%;
+z-index: -2;
+object-fit: contain;
+filter: blur(100px);
+}
+
  body {
     word-spacing: 1.4px;
+    /* min-width: 100vh; */
     min-height: 100vh;
     font-family: "poppins";
     display: flex;
@@ -16,7 +28,8 @@
 
   /* BG */
   body{
-    background-image: url("https://static.wikia.nocookie.net/cswikia/images/5/5f/Customplayer_ctm_st6_variantn.png/revision/latest?cb=20211003103842");
+    /* background-image: url("https://static.wikia.nocookie.net/cswikia/images/5/5f/Customplayer_ctm_st6_variantn.png/revision/latest?cb=20211003103842"); */
+    background-color: #03002e;
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: center;
@@ -55,22 +68,56 @@
   }
 
   .container {
+    position: relative;
     margin: auto;
     display: flex;
-    width: 40%;
-    background-color: rgb(105,105,105, 0.5);
-    border-color: #487bff;
+    width: 60%;
+    background: radial-gradient(rgb(3,0,46));
+    border: 4px solid transparent;
     border-radius: 20px;
     justify-content: space-between;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 30px;
   }
+ 
+  @property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+  }
+  
+  .container::after, .container::before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    border-radius: 20px;
+    padding: 7px;
+    background-image: conic-gradient(from var(--angle), #fc72ff, #8f68ff, #487bff,#8f68ff,#fc72ff);
+    z-index: -1;
+    translate: -50% -50%;
+    animation: 2s spin linear infinite;
+  }
+  .container::before{
+    filter: blur(1.5rem);
+    opacity: 0.5;
+  }
+@keyframes spin{
+  from{
+    --angle: 0deg;
+  }
+  to{
+    --angle: 360deg
+  }
+}
 
   #gname{
     color: white;
     width: 120%;
-    font-size: 50px;
+    font-size: 45px;
   }
   #word-about{
     display: block;
@@ -88,11 +135,12 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    color: white;
     /* flex:1; */
   }
 #about{
   display: block;
-  width: 45%;
+  width: 50%;
 }
 
   #right-box p{
@@ -101,12 +149,12 @@
     flex-direction: column;
     flex: 1;
     text-transform: uppercase;
-    margin: 2.85em 0em;
+    margin: 2.85em 0.8em;
     transition: transform 0.8s ease;
     position: relative;
   }
   /* Text Gradient Animation */
-  #p1{
+  .para{
     font-weight: bold;
     background: linear-gradient(to right,
     #fc72ff, #8f68ff, #487bff,#8f68ff,#fc72ff);
@@ -123,9 +171,10 @@
   }
   /* end */
   #right-box p:hover, .item:hover{
-    transform: scale(1.1);
+    transform: scale(1.2);
     z-index: 10;           
     cursor: pointer;  
+    box-shadow: white;
   }
   #button-1{
     align-items: center;
@@ -136,12 +185,13 @@
     cursor: text;
     margin: 0;
   }
-  #about{
+  #about-contain{
     /* padding: 0 50vh 0 0;*/
     margin: 1.4em 2em 1em 2em; 
   }
   /* Item */
   .item {
+    z-index: 2;
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -159,6 +209,24 @@
     transition: transform 0.8s ease;
     position: relative;
   }
+  /* .item-0::after, .item::before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    border-radius: 90%;
+    padding: 3px;
+    background-image: conic-gradient(from var(--angle), #fc72ff, #8f68ff, #487bff,#8f68ff,#fc72ff);
+    z-index: -1;
+    translate: -50% -50%;
+    animation: 3s spin linear infinite;
+  }
+  .item::before{
+    filter: blur(1.5rem);
+    opacity: 0.5;
+  } */
   .item:hover {
     transform: scale(1.2);
     z-index: 10;           
@@ -166,6 +234,12 @@
     /* background-size: 10%;      */
 }
 /* Item Selection */
+.item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  /* opacity: 1; */
+}
   .item-0{
     padding: 0pt;
     margin: 10px auto;
@@ -178,17 +252,17 @@
   }
   .item-2{
     /* z-index: 10; */
-    color:white;
+    color: white
     /* order: 1; */
   }
   .item-3{
-    color:white;
+    color: white
   }
   .item-4{
-    color:white;
+    color: white
   }
   .item-5{
-    color:white;
+    color: white
   }
   .item-6{
     color:white;
@@ -198,7 +272,7 @@
     margin: 10px auto;
     margin-right: 30px;
     background-color: transparent;
-    background-image: url("pic/down.png");
+    /* background-image: url("pic/down.png"); */
   }
 
   #show-box{
@@ -239,7 +313,8 @@
 }
   @media (max-width: 900px) {
     .container {
-        width: 370px;
+        /* width: 100%;
+        height: 100%; */
         align-items: center;
         justify-content: center;
         flex-direction: column;
@@ -268,12 +343,76 @@
 
 /* For screens smaller than 400px (e.g., mobile phones) */
 @media (max-width: 500px) {
+  body{
+    min-width: 100%;
+    min-height: 50vh;
+  }
     .container {
         /* New width to fit exactly ONE item */
-        width: 350px;
+        margin-left: 15px;
+        width: 370px;
+        height: 800px;
         justify-content: center;
+        text-align: center;
+    }
+    header h1{
+      font-family:'Counter-Strike';
+      font-size: 50px;
+      letter-spacing: 5px;
+      margin-top: 0;
+      text-align: center;
+      margin-top: 30px;
+      margin-bottom: 20px;
+    }
+    #gname{
+      width: 100%;
+      padding-right: 10em;
     }
     img{
       width: 180px;
     }
-}
+    #right-box {
+      flex-direction: column; 
+      flex-wrap: wrap;
+      justify-content: center;
+      opacity: 0.5;
+  }
+    #button-1{
+      display: flex;
+      order: 1;
+      flex-direction: row;
+    }
+    .item{
+      width: 50px;
+      margin: 0;
+      margin: 1px 12px 1px 12px;
+    }
+    .box-text{
+      display: flex;
+      order: 2;
+      flex-direction: row;
+      
+    }
+    .item-0, .item-last{
+      display: none;
+    }
+    #right-box p {
+      font-size: 10px;
+      text-align: center;
+    }
+  }
+  /* right-box p{
+    display: flex;
+    text-align: right;
+    flex-direction: column;
+    flex: 1;
+    text-transform: uppercase;
+    margin: 2.85em 0.8em;
+    transition: transform 0.8s ease;
+    position: relative;
+  } */
+/* 
+  .item.active {
+    transform: scale(1.1);
+    z-index: 10;
+} */
