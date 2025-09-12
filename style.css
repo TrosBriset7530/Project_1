@@ -49,8 +49,8 @@ filter: blur(4px) hue-rotate(195deg);
   transform: scale(1.35);
 } */
 html, body{
-  /* overflow-x: hidden;
-  overflow-y: hidden; */
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
  body {
     word-spacing: 1.4px;
