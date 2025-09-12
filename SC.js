@@ -10,6 +10,7 @@ let gname = document.getElementById("gname")
 let worddesc = document.getElementById("word-about")
 let up = document.getElementById("click_0")
 let down = document.getElementById("click_last")
+const about = document.getElementById("about-contain")
 // Parag
 let p1 = document.getElementById("p1")
 let p2 = document.getElementById("p2")
@@ -17,6 +18,8 @@ let p3 = document.getElementById("p3")
 let p4 = document.getElementById("p4")
 let p5 = document.getElementById("p5")
 const p = document.querySelectorAll(".para")
+// 
+
 // 
 const bodyId = document.body.id
 const Item = document.querySelectorAll(".item")
@@ -27,6 +30,29 @@ function updateCountDisplayAndStorage() {
     localStorage.setItem('myPersistentCount', counter); // Save the current count to localStorage
     console.log("Count is now: " + counter + " (saved to localStorage)");
 }
+function anim(x, delay, dur){
+    setTimeout(() => {
+        let start = null;
+        let t = -10;
+        x.style.transform="translateX("+t+"px)"
+        function animate(timestamp) {
+          if (!start) start = timestamp;
+          let progress = (timestamp - start) / dur;
+          if (progress > 1) progress = 1;
+          //opacity
+          x.style.opacity = progress;
+          //transform x
+          let t_prog = t + (0 - t) * progress ;
+          x.style.transform="translateX("+t_prog+"px)"
+          if (progress < 1) {
+            requestAnimationFrame(animate);
+          }
+        }
+        requestAnimationFrame(animate);
+
+      }, delay);
+    }
+    // anim(about,0,1000)
 function updateContent() {
     updateCountDisplayAndStorage();
      Item.forEach(item => {
@@ -78,6 +104,7 @@ function updateContent() {
     }
     up.style.opacity="1";
     down.style.opacity="1";
+    // anim(about,0,1000);
 }
 // func button
 updateCountDisplayAndStorage()
@@ -86,11 +113,15 @@ up.addEventListener('click',  function() {
     if (counter > 1){
     console.log(counter)
     counter -= 1;
-    updateContent()
+    about.style.opacity="0"
+        updateContent()
+        anim(about,10,500)
     }
     else{
         counter = 5;
+        about.style.opacity="0"
         updateContent()
+        anim(about,10,500)
     }
 });
 
@@ -99,62 +130,135 @@ down.addEventListener('click',  function() {
     if (counter < 5){
         console.log(counter)
         counter += 1;
+        about.style.opacity="0"
         updateContent()
+        anim(about,10,500)
         }
     else{
         counter = 1;
+        about.style.opacity="0"
         updateContent()
+        anim(about,10,500)
         }
 });
+// reload();
 // Ini Awal dari Item_1
     Item_1.addEventListener('click',  function() {
-       counter = 1;
-       updateContent()
+        if(counter != 1){
+            counter = 1;
+            about.style.opacity="0"
+            updateContent()
+            anim(about,10,500)
+            }
+            else{
+             updateContent()
+            }
     });
-        Item_1.addEventListener('mouseleave',  function() {
-            document.body.style.backgroundImage = "url()"
-        });
     // Ini Akhir dari Item_1
 
     // Item 2
     Item_2.addEventListener('click',  function() {
-        counter = 2;
-       updateContent()
+        if(counter != 2){
+            counter = 2;
+            about.style.opacity="0"
+            updateContent()
+            anim(about,10,500)
+            }
+            else{
+             updateContent()
+            }
+
     });
     // Item 3
     Item_3.addEventListener('click',  function() {
-        counter = 3;
-       updateContent()
+        if(counter != 3){
+            counter = 3;
+            about.style.opacity="0"
+            updateContent()
+            anim(about,10,500)
+            }
+            else{
+             updateContent()
+            }
     });
     // Item 4
     Item_4.addEventListener('click',  function() {
-        counter = 4;
-       updateContent()
+        if(counter != 4){
+            counter = 4;
+            about.style.opacity="0"
+            updateContent()
+            anim(about,10,500)
+            }
+            else{
+             updateContent()
+            }
     });
     // Item 5
     Item_5.addEventListener('click',  function() {
-        counter = 5;
-       updateContent()
+        if(counter != 5){
+            counter = 5;
+            about.style.opacity="0"
+            updateContent()
+            anim(about,10,500)
+            }
+            else{
+             updateContent()
+            }
     });
     p1.addEventListener('click',  function() {
-        counter = 1;
-       updateContent()
+        if(counter != 1){
+            counter = 1;
+            about.style.opacity="0"
+            updateContent()
+            anim(about,10,500)
+            }
+            else{
+             updateContent()
+            }
     });
     p2.addEventListener('click',  function() {
-        counter = 2;
-       updateContent()
+        if(counter != 2){
+            counter = 2;
+            about.style.opacity="0"
+            updateContent()
+            anim(about,10,500)
+            }
+            else{
+             updateContent()
+            }
     });
     p3.addEventListener('click',  function() {
-        counter = 3;
-       updateContent()
+        if(counter != 3){
+            counter = 3;
+            about.style.opacity="0"
+            updateContent()
+            anim(about,10,500)
+            }
+            else{
+             updateContent()
+            }
     });
     p4.addEventListener('click',  function() {
-        counter = 4;
-       updateContent()
+        if(counter != 4){
+            counter = 4;
+            about.style.opacity="0"
+            updateContent()
+            anim(about,10,500)
+            }
+            else{
+             updateContent()
+            }
     });
     p5.addEventListener('click',  function() {
-        counter = 5;
-       updateContent()
+        if(counter != 5){
+            counter = 5;
+            about.style.opacity="0"
+            updateContent()
+            anim(about,10,500)
+            }
+            else{
+             updateContent()
+            }
     });
     Item.forEach(item => {
         item.addEventListener('click', function() {
@@ -163,21 +267,16 @@ down.addEventListener('click',  function() {
     
         item.addEventListener('mouseover', function() {
             document.body.style.cursor = "pointer";
-            updateContent()
             item.style.transform = "scale(1.2)"
             p.style.transform = "scale(1.2)"
-            console.log(p);
-
+            // console.log(item)
+            updateContent()
         });
     
         item.addEventListener('mouseout', function() {
             document.body.style.cursor = "default";
             item.style.transform = "scale(1)"
             updateContent()
-            
-            // p.forEach(para =>{
-            //     para.style.transform = "scale(1)"
-            // })
         });
     });
     p.forEach(para =>{
