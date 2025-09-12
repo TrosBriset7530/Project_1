@@ -19,7 +19,6 @@ let p4 = document.getElementById("p4")
 let p5 = document.getElementById("p5")
 const p = document.querySelectorAll(".para")
 // 
-
 // 
 const bodyId = document.body.id
 const Item = document.querySelectorAll(".item")
@@ -30,6 +29,7 @@ function updateCountDisplayAndStorage() {
     localStorage.setItem('myPersistentCount', counter); // Save the current count to localStorage
     console.log("Count is now: " + counter + " (saved to localStorage)");
 }
+//Animation
 function anim(x, delay, dur){
     setTimeout(() => {
         let start = null;
@@ -52,7 +52,55 @@ function anim(x, delay, dur){
 
       }, delay);
     }
-    // anim(about,0,1000)
+//header anim
+let logo = document.getElementById("header_1")
+let array = ["HISTORY","COUNTER","STRIKE"]
+let head_i = 0;
+let small = 0.9;
+let big = 1.1;
+function fadeText(newText, duration = 500) {
+    let start = null;
+    function fadeOut(timestamp) {
+      if (!start) start = timestamp;
+      let progress = (timestamp - start) / duration;
+      if (progress > 1) progress = 1;
+      let scale = big + (small - big) * progress
+      logo.style.transform = `scale(${scale})`
+      logo.style.opacity = 1 - progress; 
+      if (progress < 1) {
+        requestAnimationFrame(fadeOut);
+      } else {
+        // change text once fully faded
+        logo.innerHTML = newText;
+        start = null;
+        requestAnimationFrame(fadeIn);
+      }
+    }
+  
+    function fadeIn(timestamp) {
+      if (!start) start = timestamp;
+      let progress = (timestamp - start) / duration;
+      if (progress > 1) progress = 1;
+      logo.style.opacity = progress;
+      let scale = small + (big - small) * progress
+      logo.style.transform = `scale(${scale})`
+      if (progress < 1) {
+        requestAnimationFrame(fadeIn);
+      }
+    }
+  
+    requestAnimationFrame(fadeOut);
+  }
+  
+  setInterval(() => {
+    head_i = (head_i + 1) % array.length;
+    fadeText(array[head_i]);
+  }, 1500);
+// setInterval(()=>{
+//     head();
+// }
+// ,1000)
+//update every Counter
 function updateContent() {
     updateCountDisplayAndStorage();
      Item.forEach(item => {
@@ -115,13 +163,13 @@ up.addEventListener('click',  function() {
     counter -= 1;
     about.style.opacity="0"
         updateContent()
-        anim(about,10,500)
+        anim(about,10,400)
     }
     else{
         counter = 5;
         about.style.opacity="0"
         updateContent()
-        anim(about,10,500)
+        anim(about,10,400)
     }
 });
 
@@ -132,13 +180,13 @@ down.addEventListener('click',  function() {
         counter += 1;
         about.style.opacity="0"
         updateContent()
-        anim(about,10,500)
+        anim(about,10,400)
         }
     else{
         counter = 1;
         about.style.opacity="0"
         updateContent()
-        anim(about,10,500)
+        anim(about,10,400)
         }
 });
 // reload();
@@ -148,7 +196,7 @@ down.addEventListener('click',  function() {
             counter = 1;
             about.style.opacity="0"
             updateContent()
-            anim(about,10,500)
+            anim(about,10,400)
             }
             else{
              updateContent()
@@ -162,7 +210,7 @@ down.addEventListener('click',  function() {
             counter = 2;
             about.style.opacity="0"
             updateContent()
-            anim(about,10,500)
+            anim(about,10,400)
             }
             else{
              updateContent()
@@ -175,7 +223,7 @@ down.addEventListener('click',  function() {
             counter = 3;
             about.style.opacity="0"
             updateContent()
-            anim(about,10,500)
+            anim(about,10,400)
             }
             else{
              updateContent()
@@ -187,7 +235,7 @@ down.addEventListener('click',  function() {
             counter = 4;
             about.style.opacity="0"
             updateContent()
-            anim(about,10,500)
+            anim(about,10,400)
             }
             else{
              updateContent()
@@ -199,7 +247,7 @@ down.addEventListener('click',  function() {
             counter = 5;
             about.style.opacity="0"
             updateContent()
-            anim(about,10,500)
+            anim(about,10,400)
             }
             else{
              updateContent()
@@ -210,7 +258,7 @@ down.addEventListener('click',  function() {
             counter = 1;
             about.style.opacity="0"
             updateContent()
-            anim(about,10,500)
+            anim(about,10,400)
             }
             else{
              updateContent()
@@ -221,7 +269,7 @@ down.addEventListener('click',  function() {
             counter = 2;
             about.style.opacity="0"
             updateContent()
-            anim(about,10,500)
+            anim(about,10,400)
             }
             else{
              updateContent()
@@ -232,7 +280,7 @@ down.addEventListener('click',  function() {
             counter = 3;
             about.style.opacity="0"
             updateContent()
-            anim(about,10,500)
+            anim(about,10,400)
             }
             else{
              updateContent()
@@ -243,7 +291,7 @@ down.addEventListener('click',  function() {
             counter = 4;
             about.style.opacity="0"
             updateContent()
-            anim(about,10,500)
+            anim(about,10,400)
             }
             else{
              updateContent()
@@ -254,7 +302,7 @@ down.addEventListener('click',  function() {
             counter = 5;
             about.style.opacity="0"
             updateContent()
-            anim(about,10,500)
+            anim(about,10,400)
             }
             else{
              updateContent()
@@ -268,6 +316,7 @@ down.addEventListener('click',  function() {
         item.addEventListener('mouseover', function() {
             document.body.style.cursor = "pointer";
             item.style.transform = "scale(1.2)"
+            item.style.opacity = 0.7
             p.style.transform = "scale(1.2)"
             // console.log(item)
             updateContent()
@@ -284,7 +333,8 @@ down.addEventListener('click',  function() {
             document.body.style.cursor = "pointer";
             updateContent()
             para.style.transform = "scale(1.1)"
-            console.log(para);
+            para.style.opacity = 0.7
+            // console.log(para);
 
         });
         para.addEventListener('mouseout', function() {

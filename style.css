@@ -232,6 +232,7 @@ html, body{
     z-index: 10;           
     cursor: pointer;  
     box-shadow: white;
+    opacity: 0.8;
   }
   #button-1{
     align-items: center;
